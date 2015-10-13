@@ -16,7 +16,7 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.18.0
+Version: 3.18.1
 Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
@@ -241,6 +241,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Tue Oct 13 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.18.1-1
+- Update to 3.18.1
+
 * Fri Oct 02 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.18.0-1
 - Version bump for GNOME Flashback 3.18.
 
