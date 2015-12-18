@@ -8,7 +8,7 @@
 %define telepathy_glib_version 0.14.0
 %define evolution_data_server_version 3.5.3
 %define cairo_version 1.0.0
-%define libgweather_version 3.9.2
+%define libgweather_version 3.10.1
 %define dconf_version 0.13.4
 %define librsvg_version 2.36.2
 
@@ -17,13 +17,12 @@
 Summary: GNOME panel
 Name: gnome-panel
 Version: 3.14.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
 Source0: http://download.gnome.org/sources/gnome-panel/3.14/%{name}-%{version}.tar.xz
+Patch0:  gnome-panel-3.14-clock-fixes.patch
 
-# https://bugzilla.gnome.org/show_bug.cgi?id=646749
-#Patch0: Use-16px-menu-icons.patch
 
 License: GPLv2+ and LGPLv2+ and GFDL
 Group: User Interface/Desktops
@@ -144,7 +143,7 @@ Panel Applets using the libpanel-applet library.
 
 %prep
 %setup -q -n %{name}-%{version}
-#patch0 -p1 -b .16px
+%patch0 -p1 -b .clock
 
 rm -f libtool
 autoreconf -i -f
@@ -242,6 +241,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Fri Dec 18 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.14.0-2
+- Add upstream fixes for clock applet
+
 * Wed Feb 04 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.14.0-1
 - Version bump for GNOME Flashback 3.14.
 
