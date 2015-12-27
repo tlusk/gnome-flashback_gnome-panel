@@ -17,7 +17,7 @@
 Summary: GNOME panel
 Name: gnome-panel
 Version: 3.14.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
 Source0: http://download.gnome.org/sources/gnome-panel/3.14/%{name}-%{version}.tar.xz
@@ -33,7 +33,6 @@ Requires: gnome-menus >= %{gnome_menus_version}
 %if %{use_evolution_data_server}
 Requires: evolution-data-server >= %{evolution_data_server_version}
 %endif
-Requires: gnome-session-xsession
 Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 Requires(post): hicolor-icon-theme
@@ -241,6 +240,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Sun Dec 27 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.14.0-3
+- Drop gnome-shell-specific gnome-session-xsession dependency
+
 * Fri Dec 18 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.14.0-2
 - Add upstream fixes for clock applet
 
