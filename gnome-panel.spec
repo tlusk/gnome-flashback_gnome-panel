@@ -16,8 +16,8 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.18.1
-Release: 2%{?dist}
+Version: 3.18.2
+Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
 Source0: http://download.gnome.org/sources/gnome-panel/3.18/%{name}-%{version}.tar.xz
@@ -240,6 +240,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Thu Apr 14 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.18.2-1
+- new version
+
 * Sun Dec 27 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.18.1-2
 - Drop gnome-shell-specific gnome-session-xsession dependency
 
