@@ -2,7 +2,7 @@
 
 %define gnome_desktop_version 2.91.6
 %define glib2_version 2.45.3
-%define gtk3_version 3.15.2
+%define gtk3_version 3.19.6
 %define libwnck_version 3.4.6
 %define gnome_menus_version 3.7.90
 %define telepathy_glib_version 0.14.0
@@ -16,11 +16,11 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.18.2
+Version: 3.20.0
 Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
-Source0: http://download.gnome.org/sources/gnome-panel/3.18/%{name}-%{version}.tar.xz
+Source0: http://download.gnome.org/sources/gnome-panel/3.20/%{name}-%{version}.tar.xz
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=646749
 #Patch0: Use-16px-menu-icons.patch
@@ -240,6 +240,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Mon Apr 18 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.20.0-1
+- Version bump for GNOME Flashback 3.20.
+
 * Thu Apr 14 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.18.2-1
 - new version
 
