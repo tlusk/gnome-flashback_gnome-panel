@@ -49,6 +49,7 @@ BuildRequires: autoconf
 BuildRequires: libtool
 BuildRequires: GConf2-devel
 BuildRequires: gtk3-devel >= %{gtk3_version}
+BuildRequires: gdm-devel
 BuildRequires: itstool
 BuildRequires: libxslt
 BuildRequires: libX11-devel
