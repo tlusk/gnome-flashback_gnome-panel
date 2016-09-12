@@ -16,7 +16,7 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.20.0
+Version: 3.20.1
 Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
@@ -240,6 +240,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Mon Sep 12 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.20.1-1
+- new version
+
 * Mon Apr 18 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.20.0-1
 - Version bump for GNOME Flashback 3.20.
 
