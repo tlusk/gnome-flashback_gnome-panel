@@ -232,7 +232,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_libdir}/*.so.*
 
 %files devel
-%{_bindir}/panel-test-applets
 %{_includedir}/gnome-panel/
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
