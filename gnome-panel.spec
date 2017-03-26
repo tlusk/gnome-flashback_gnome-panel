@@ -78,7 +78,6 @@ BuildRequires: gettext-devel
 BuildRequires: libtool
 BuildRequires: libcanberra-devel
 BuildRequires: desktop-file-utils
-BuildRequires: gobject-introspection-devel
 BuildRequires: gnome-common
 
 Obsoletes: gdm-user-switch-applet < 1:2.91.6
@@ -229,7 +228,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 
 %files libs
 %{_libdir}/*.so.*
-%{_libdir}/girepository-1.0/PanelApplet-5.0.typelib
 
 %files devel
 %{_bindir}/panel-test-applets
@@ -237,7 +235,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 %{_datadir}/gtk-doc
-%{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
 * Sun Mar 26 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 3.22.0-1
