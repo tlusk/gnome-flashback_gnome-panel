@@ -16,11 +16,11 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.20.1
+Version: 3.22.0
 Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
-Source0: http://download.gnome.org/sources/gnome-panel/3.20/%{name}-%{version}.tar.xz
+Source0: http://download.gnome.org/sources/gnome-panel/3.22/%{name}-%{version}.tar.xz
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=646749
 #Patch0: Use-16px-menu-icons.patch
@@ -212,11 +212,10 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_bindir}/gnome-panel
 %{_bindir}/gnome-desktop-item-edit
 %dir %{_libdir}/gnome-panel/
-%dir %{_libdir}/gnome-panel/5.0/
-%{_libdir}/gnome-panel/5.0/libclock-applet.so
-%{_libdir}/gnome-panel/5.0/libfish-applet.so
-%{_libdir}/gnome-panel/5.0/libnotification-area-applet.so
-%{_libdir}/gnome-panel/5.0/libwnck-applet.so
+%{_libdir}/gnome-panel/libclock-applet.so
+%{_libdir}/gnome-panel/libfish-applet.so
+%{_libdir}/gnome-panel/libnotification-area-applet.so
+%{_libdir}/gnome-panel/libwnck-applet.so
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.workspace-switcher.gschema.xml
@@ -241,6 +240,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Sun Mar 26 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 3.22.0-1
+- new version
+
 * Mon Sep 12 2016 Yaakov Selkowitz <yselkowi@redhat.com> - 3.20.1-1
 - new version
 
