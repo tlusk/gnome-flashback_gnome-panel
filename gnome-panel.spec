@@ -211,10 +211,12 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_bindir}/gnome-panel
 %{_bindir}/gnome-desktop-item-edit
 %dir %{_libdir}/gnome-panel/
-%{_libdir}/gnome-panel/libclock-applet.so
-%{_libdir}/gnome-panel/libfish-applet.so
-%{_libdir}/gnome-panel/libnotification-area-applet.so
-%{_libdir}/gnome-panel/libwnck-applet.so
+%dir %{_libdir}/gnome-panel/modules/
+%{_libdir}/gnome-panel/modules/clock.so
+%{_libdir}/gnome-panel/modules/fish.so
+%{_libdir}/gnome-panel/modules/notification-area.so
+%{_libdir}/gnome-panel/modules/status-notifier.so
+%{_libdir}/gnome-panel/modules/wncklet.so
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.workspace-switcher.gschema.xml
