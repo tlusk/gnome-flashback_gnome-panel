@@ -16,7 +16,7 @@
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.24.0
+Version: 3.24.1
 Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
@@ -238,6 +238,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gtk-doc
 
 %changelog
+* Tue Mar 28 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 3.24.1-1
+- new version
+
 * Sun Mar 26 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 3.24.0-1
 - new version
 
