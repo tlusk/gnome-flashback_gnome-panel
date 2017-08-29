@@ -1,28 +1,26 @@
 %define gettext_package gnome-panel-3.0
 
-%define gnome_desktop_version 2.91.6
-%define glib2_version 2.35.0
-%define gtk3_version 3.3.8
-%define libwnck_version 3.4.6
-%define gnome_menus_version 3.7.90
-%define telepathy_glib_version 0.14.0
-%define evolution_data_server_version 3.5.3
-%define cairo_version 1.0.0
-%define libgweather_version 3.10.1
-%define dconf_version 0.13.4
-%define librsvg_version 2.36.2
+%define gnome_desktop_version 2.32.0
+%define glib2_version 2.50.3
+%define gtk3_version 3.22.10
+%define libwnck_version 3.20.1
+%define gnome_menus_version 3.13.3
+%define telepathy_glib_version 0.24.0
+%define evolution_data_server_version 3.22.7
+%define cairo_version 1.14.8
+%define libgweather_version 3.20.4
+%define dconf_version 0.26.0
+%define librsvg_version 2.40.16
 
 %define use_evolution_data_server 1
 
 Summary: GNOME panel
 Name: gnome-panel
-Version: 3.14.0
-Release: 3%{?dist}
+Version: 3.22.0
+Release: 1%{?dist}
 URL: http://www.gnome.org
 #VCS: git:git://git.gnome.org/gnome-panel
-Source0: http://download.gnome.org/sources/gnome-panel/3.14/%{name}-%{version}.tar.xz
-Patch0:  gnome-panel-3.14-clock-fixes.patch
-
+Source0: http://download.gnome.org/sources/gnome-panel/3.22/%{name}-%{version}.tar.xz
 
 License: GPLv2+ and LGPLv2+ and GFDL
 Group: User Interface/Desktops
@@ -48,6 +46,7 @@ BuildRequires: autoconf
 BuildRequires: libtool
 BuildRequires: GConf2-devel
 BuildRequires: gtk3-devel >= %{gtk3_version}
+BuildRequires: gdm-devel
 BuildRequires: itstool
 BuildRequires: libxslt
 BuildRequires: libX11-devel
@@ -66,7 +65,7 @@ BuildRequires: libXrandr-devel
 %if %{use_evolution_data_server}
 BuildRequires: evolution-data-server-devel >= %{evolution_data_server_version}
 %endif
-BuildRequires: polkit-devel >= 0.92
+BuildRequires: polkit-devel >= 0.112
 BuildRequires: libgweather-devel >= %{libgweather_version}
 BuildRequires: librsvg2-devel >= %{librsvg_version}
 BuildRequires: NetworkManager-devel
@@ -76,7 +75,6 @@ BuildRequires: gettext-devel
 BuildRequires: libtool
 BuildRequires: libcanberra-devel
 BuildRequires: desktop-file-utils
-BuildRequires: gobject-introspection-devel
 BuildRequires: gnome-common
 
 Obsoletes: gdm-user-switch-applet < 1:2.91.6
@@ -142,7 +140,6 @@ Panel Applets using the libpanel-applet library.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1 -b .clock
 
 rm -f libtool
 autoreconf -i -f
@@ -209,12 +206,11 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/applications/gnome-panel.desktop
 %{_bindir}/gnome-panel
 %{_bindir}/gnome-desktop-item-edit
-%{_libexecdir}/%{name}/
-
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.ClockAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.FishAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
+%dir %{_libdir}/gnome-panel/
+%{_libdir}/gnome-panel/libclock-applet.so
+%{_libdir}/gnome-panel/libfish-applet.so
+%{_libdir}/gnome-panel/libnotification-area-applet.so
+%{_libdir}/gnome-panel/libwnck-applet.so
 
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -229,7 +225,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 
 %files libs
 %{_libdir}/*.so.*
-%{_libdir}/girepository-1.0/PanelApplet-5.0.typelib
 
 %files devel
 %{_bindir}/panel-test-applets
@@ -237,9 +232,11 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 %{_datadir}/gtk-doc
-%{_datadir}/gir-1.0/PanelApplet-5.0.gir
 
 %changelog
+* Tue Aug 29 2017 Timothy Lusk <tlusk@carbonblack.com> - 3.22.0-1
+- Version bump for GNOME Flashback 3.22.
+
 * Sun Dec 27 2015 Yaakov Selkowitz <yselkowi@redhat.com> - 3.14.0-3
 - Drop gnome-shell-specific gnome-session-xsession dependency
 
